@@ -1,0 +1,27 @@
+@import url(font-face.css);
+/* ------------------ ROOT VARIABLES ------------------ */
+:root {
+    /* Font Families */
+    --font-primary: 'Open Sans', sans-serif;
+
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-semi: 600;
+    --weight-bold: 700;
+    --weight-extrabold: 800;
+
+    /* Colors */
+    --color-bg: #f5f5f5;
+    --color-text: #333333;
+    --color-accent: #ff4d4d;
+    /* Tomato accent for Pomodoro */
+    --color-button: #007bff;
+    --color-button-hover: #0056b3;
+
+    /* Sizes */
+    --font-size-body: 16px;
+    --font-size-title: 2rem;
+    --font-size-timer: 4rem;
+    --font-size-button: 1rem;
+}

@@ -201,3 +201,9 @@ label {
     color: #17a2b8;
     /* teal label color */
 }
+
+@media (max-width: 740px) {
+    body {
+        width: 100vw;
+    }
+}

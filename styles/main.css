@@ -9,7 +9,7 @@
 body {
     padding: 1rem;
     font-family: var(--font-primary);
-    width: 40vw;
+    width: 100vw;
     background-color: #fff;
     color: #333;
     /* Base text color for accessibility */

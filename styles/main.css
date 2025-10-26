@@ -191,25 +191,30 @@ label {
 }
 
 /* ---------- Dark Mode ---------- */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #1e1e1e;
-        color: #eaeaea;
-    }
+/* Default (light) styles are already there */
+body {
+    background-color: #fff;
+    color: #000;
+}
 
-    .card {
-        background: #2c2c2c;
-    }
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f5f5f5;
+}
 
-    input,
-    button {
-        background: #3a3a3a;
-        color: #fff;
-        border-color: #555;
-    }
+.card.dark-mode {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
 
-    #timer {
-        background: #3c2e2e;
-        color: #ff6b6b;
-    }
+button.dark-mode {
+    background-color: #333;
+    color: #f5f5f5;
+}
+
+input.dark-mode {
+    background-color: #222;
+    color: #f5f5f5;
+    border: 1px solid #555;
 }

@@ -18,6 +18,11 @@ body {
     gap: 0.8rem;
 }
 
+/* Hide main UI by default */
+#main-ui {
+    display: none;
+}
+
 /* ---------- Card Layout ---------- */
 .card {
     background: #fff;
@@ -71,6 +76,7 @@ button {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
+/* Timer buttons */
 #startBtn {
     background-color: #28a745;
     color: #fff;
@@ -127,7 +133,9 @@ button:active {
 
 /* ---------- Inputs ---------- */
 input[type="number"],
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     font-family: inherit;
     font-size: 1rem;
     padding: 0.5rem;
@@ -140,10 +148,22 @@ input[type="text"] {
     color: #333;
 }
 
-input[type="number"]:focus,
-input[type="text"]:focus {
+input:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* ---------- Input Rows ---------- */
+.input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+}
+
+.input-row label {
+    margin-bottom: 0.3rem;
+    color: #007bff;
+    font-weight: 600;
 }
 
 /* ---------- Tasks ---------- */
@@ -184,20 +204,7 @@ input[type="text"]:focus {
     flex: 1;
 }
 
-/* ---------- Labels ---------- */
-label {
-    color: #007bff;
-    font-weight: 600;
-}
-
 /* ---------- Dark Mode ---------- */
-/* Default (light) styles are already there */
-body {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Dark mode styles */
 body.dark-mode {
     background-color: #121212;
     color: #f5f5f5;
@@ -206,6 +213,10 @@ body.dark-mode {
 .card.dark-mode {
     background-color: #1e1e1e;
     color: #f5f5f5;
+}
+
+#dark-mode-toggle {
+    width: 100%;
 }
 
 button.dark-mode {
@@ -217,4 +228,119 @@ input.dark-mode {
     background-color: #222;
     color: #f5f5f5;
     border: 1px solid #555;
+}
+
+/* ---------- Auth Section ---------- */
+#auth-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* fill vertical space */
+    gap: 1rem;
+    padding: 1rem;
+}
+
+#auth-section h2 {
+    color: #007bff;
+    font-size: 1.2rem;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+}
+
+#login-form .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#loginBtn,
+#signupBtn {
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#loginBtn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#signupBtn {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+#loginBtn:hover,
+#signupBtn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+#loginBtn:active,
+#signupBtn:active {
+    transform: translateY(1px);
+    filter: brightness(0.9);
+}
+
+#social-logins {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+#social-logins button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Google button */
+#googleLoginBtn {
+    background-color: #4285F4;
+    color: #fff;
+}
+
+/* GitHub button */
+#githubLoginBtn {
+    background-color: #24292e;
+    color: #fff;
+}
+
+#googleLoginBtn:hover,
+#githubLoginBtn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+#googleLoginBtn:active,
+#githubLoginBtn:active {
+    transform: translateY(1px);
+    filter: brightness(0.9);
+}
+
+/* Auth Icons */
+.icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
 }

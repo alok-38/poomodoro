@@ -4,82 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer Chrome Extension</title>
+    <title>Pomodoro Timer Extension</title>
     <link rel="stylesheet" href="styles/main.css">
     <script src="scripts/timer.js" defer></script>
     <script src="scripts/dark-mode.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Pomodoro Timer Extension</h1>
-    </header>
 
-    <!-- Dark mode -->
-    <button id="dark-mode-toggle">🌙 Dark Mode</button>
+    <body>
+        <header class="card center">
+            <h1>Pomodoro Timer Extension</h1>
+            <!-- Dark mode toggle -->
+            <button id="dark-mode-toggle">🌙 Dark Mode</button>
+        </header>
 
-    <!-- 0️⃣ Authentication Section -->
-    <section id="auth-section" class="card">
-        <h2>User Login</h2>
+        <!-- 0️⃣ Authentication Section -->
+        <section id="auth-section" class="card">
+            <h2>User Login</h2>
 
-        <!-- Email/password form -->
-        <form id="login-form">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-            <button type="button" id="signupBtn">Sign Up</button>
-        </form>
+            <!-- Email/Password Form -->
+            <form id="login-form" novalidate>
+                <div class="input-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="controls">
+                    <button type="submit" id="loginBtn">Login</button>
+                    <button type="button" id="signupBtn">Sign Up</button>
+                </div>
+            </form>
 
-        <!-- Social logins -->
-        <div id="social-logins">
-            <button id="googleLoginBtn">Login with Google</button>
-            <button id="githubLoginBtn">Login with GitHub</button>
-        </div>
-    </section>
-
-
-    <!-- 1️⃣ Timer Settings -->
-    <section aria-labelledby="timer-settings" class="card">
-        <h2 id="timer-settings">Timer Settings</h2>
-        <form>
-            <div class="input-row">
-                <label for="work-time">Work (min):</label>
-                <input type="number" id="work-time" name="work-time" min="1" placeholder="25">
+            <!-- Social Logins -->
+            <div id="social-logins" class="controls">
+                <button type="button" id="googleLoginBtn">
+                    <img src="assets/Google__G__logo.svg" alt="Google Logo" class="icon">
+                    Google
+                </button>
+                <button type="button" id="githubLoginBtn">
+                    <img src="assets/Octicons-mark-github.svg" alt="GitHub Logo" class="icon">
+                    GitHub
+                </button>
             </div>
-            <div class="input-row">
-                <label for="break-time">Break (min):</label>
-                <input type="number" id="break-time" name="break-time" min="1" placeholder="5">
-            </div>
-        </form>
-    </section>
+        </section>
 
-    <!-- 2️⃣ Timer Display -->
-    <section aria-labelledby="timer-display" class="card center">
-        <h2 id="timer-display">Timer</h2>
-        <div id="timer" role="timer" aria-live="polite">25:00</div>
-        <p id="session-type" class="session-label">Work Session</p>
-    </section>
+        <!-- Main UI (hidden by default) -->
+        <div id="main-ui">
+            <!-- 1️⃣ Timer Settings -->
+            <section class="card" aria-labelledby="timer-settings">
+                <h2 id="timer-settings">Timer Settings</h2>
+                <form>
+                    <div class="input-row">
+                        <label for="work-time">Work (min):</label>
+                        <input type="number" id="work-time" name="work-time" min="1" placeholder="25">
+                    </div>
+                    <div class="input-row">
+                        <label for="break-time">Break (min):</label>
+                        <input type="number" id="break-time" name="break-time" min="1" placeholder="5">
+                    </div>
+                </form>
+            </section>
 
-    <!-- 3️⃣ Control Buttons (don’t move this or JS breaks) -->
-    <section aria-label="Timer Controls" class="controls card">
-        <button id="startBtn">Start</button>
-        <button id="pauseBtn">Pause</button>
-        <button id="saveBtn">Save</button>
-        <button id="resetBtn">Reset</button>
-    </section>
+            <!-- 2️⃣ Timer Display -->
+            <section class="card center" aria-labelledby="timer-display">
+                <h2 id="timer-display">Timer</h2>
+                <div id="timer" role="timer" aria-live="polite">25:00</div>
+                <p id="session-type" class="session-label">Work Session</p>
+            </section>
 
-    <!-- 4️⃣ Task List -->
-    <section aria-labelledby="task-section" class="card">
-        <h2 id="task-section">Tasks</h2>
-        <ul id="task-list">
-            <!-- Tasks will be populated dynamically -->
-        </ul>
-        <div class="task-input">
-            <input type="text" id="new-task" name="new-task" placeholder="New task">
-            <button type="button" id="add-task">+</button>
+            <!-- 3️⃣ Control Buttons -->
+            <section class="card controls" aria-label="Timer Controls">
+                <button id="startBtn">Start</button>
+                <button id="pauseBtn">Pause</button>
+                <button id="saveBtn">Save</button>
+                <button id="resetBtn">Reset</button>
+            </section>
+
+            <!-- 4️⃣ Task List -->
+            <section class="card" aria-labelledby="task-section">
+                <h2 id="task-section">Tasks</h2>
+                <ul id="task-list">
+                    <!-- Tasks populated dynamically -->
+                </ul>
+                <div class="task-input">
+                    <input type="text" id="new-task" name="new-task" placeholder="New task">
+                    <button type="button" id="add-task">+</button>
+                </div>
+            </section>
         </div>
-    </section>
-
+    </body>
 
 </body>
 

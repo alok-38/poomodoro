@@ -7,203 +7,209 @@
 }
 
 body {
-    padding: 1rem;
-    font-family: var(--font-primary);
-    width: 100vw;
-    background-color: #fff;
+    padding: 0.8rem;
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    width: 375px;
+    min-height: 480px;
+    background-color: #f8f9fa;
     color: #333;
-    /* Base text color for accessibility */
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
-/* ---------------- BASE BUTTON STYLING ---------------- */
+/* ---------- Card Layout ---------- */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.center {
+    text-align: center;
+}
+
+/* ---------- Header ---------- */
+h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #007bff;
+    margin-bottom: 0.5rem;
+}
+
+/* ---------- Timer ---------- */
+#timer {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #dc3545;
+    background: #fff5f5;
+    border-radius: 8px;
+    padding: 0.4rem 0;
+    margin: 0.5rem auto;
+    width: 80%;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.session-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+}
+
+/* ---------- Buttons ---------- */
 button {
     outline: none;
     border: none;
     font-family: inherit;
     cursor: pointer;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
     font-weight: 600;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------------- BUTTON VARIANTS (ACCESSIBLE COLORS) ---------------- */
 #startBtn {
     background-color: #28a745;
-    /* Green */
     color: #fff;
 }
 
 #pauseBtn {
-    background-color: #e6a700;
-    /* Darker yellow for contrast */
+    background-color: #ffc107;
     color: #000;
-    /* Black text for readability */
 }
 
 #saveBtn {
     background-color: #007bff;
-    /* Blue */
     color: #fff;
 }
 
 #resetBtn {
     background-color: #dc3545;
-    /* Red */
     color: #fff;
 }
 
 #add-task {
     background-color: #17a2b8;
-    /* Teal */
     color: #fff;
+    font-size: 1.3rem;
 }
 
-/* ---------------- BUTTON HOVER EFFECTS ---------------- */
+/* Hover/focus/active states */
 button:hover {
     transform: translateY(-2px);
     filter: brightness(1.1);
 }
 
-/* ---------------- BUTTON FOCUS EFFECTS ---------------- */
 button:focus {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
 }
 
-/* ---------------- BUTTON ACTIVE / PRESS EFFECTS ---------------- */
 button:active {
     transform: translateY(1px);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     filter: brightness(0.9);
 }
 
-/* ---------------- BUTTON DISABLED ---------------- */
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-    filter: none;
+/* ---------- Controls Layout ---------- */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
 }
 
-/* ---------------- INPUT BASE STYLING ---------------- */
+.controls button {
+    flex: 1 1 45%;
+}
+
+/* ---------- Inputs ---------- */
 input[type="number"],
 input[type="text"] {
     font-family: inherit;
     font-size: 1rem;
-    padding: 0.5rem 0.8rem;
-    border: 2px solid #666;
-    /* darker border for contrast */
+    padding: 0.5rem;
+    border: 2px solid #ccc;
     border-radius: 6px;
     transition: all 0.2s ease-in-out;
     outline: none;
     width: 100%;
-    box-sizing: border-box;
     background-color: #fff;
     color: #333;
 }
 
-/* ---------------- INPUT HOVER EFFECTS ---------------- */
-input[type="number"]:hover,
-input[type="text"]:hover {
-    border-color: #007bff;
-    /* Accent color */
-    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.15);
-}
-
-/* ---------------- INPUT FOCUS EFFECTS ---------------- */
 input[type="number"]:focus,
 input[type="text"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
-/* ---------------- INPUT ACTIVE / PRESS EFFECTS ---------------- */
-input[type="number"]:active,
-input[type="text"]:active {
-    border-color: #0056b3;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+/* ---------- Tasks ---------- */
+#task-list {
+    list-style: none;
+    max-height: 120px;
+    overflow-y: auto;
+    margin: 0.5rem 0;
+    padding: 0;
 }
 
-/* ---------------- REMOVE NUMBER SPINNERS (Webkit only) ---------------- */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+#task-list li {
+    background: #f1f3f5;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ---------------- INPUT DISABLED ---------------- */
-input:disabled {
-    background-color: #f5f5f5;
-    border-color: #ddd;
-    cursor: not-allowed;
-}
-
-/* ---------------- PLACEHOLDER STYLING ---------------- */
-input::placeholder {
-    color: #6e6e6e;
-    /* darker placeholder for contrast */
-    opacity: 1;
-}
-
-/* ---------------- TIMER DISPLAY ---------------- */
-section:nth-of-type(2) div {
-    font-size: 3.75rem;
+#task-list li button {
+    background: transparent;
+    border: none;
     color: #dc3545;
-    /* Red timer text */
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-/* ---------------- FIELDSET / LEGEND ---------------- */
-fieldset {
-    border: unset;
+/* Add task input */
+.task-input {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-legend {
-    display: none;
+.task-input input {
+    flex: 1;
 }
 
-/* ---------------- HEADINGS ---------------- */
-h1 {
-    text-align: center;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-h2 {
-    margin-bottom: 10px;
-    color: #1f2328;
-}
-
-/* ---------------- SECTIONS ---------------- */
-section {
-    margin-bottom: 25px;
-}
-
-/* ---------------- INPUT MARGINS ---------------- */
-input[type="number"],
-input[type="text"] {
-    margin-top: 5px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem;
-    font-weight: var(--weight-light);
-    font-style: normal;
-    line-height: 1.4;
-    color: #333
-}
-
-/* ---------------- BUTTON MARGINS ---------------- */
-section:last-of-type button {
-    margin-top: 5px;
-}
-
-/* ---------------- LABEL COLORS ---------------- */
+/* ---------- Labels ---------- */
 label {
-    color: #17a2b8;
-    /* teal label color */
+    color: #007bff;
+    font-weight: 600;
 }
 
-@media (max-width: 740px) {
+/* ---------- Dark Mode ---------- */
+@media (prefers-color-scheme: dark) {
     body {
-        width: 100vw;
+        background: #1e1e1e;
+        color: #eaeaea;
+    }
+
+    .card {
+        background: #2c2c2c;
+    }
+
+    input,
+    button {
+        background: #3a3a3a;
+        color: #fff;
+        border-color: #555;
+    }
+
+    #timer {
+        background: #3c2e2e;
+        color: #ff6b6b;
     }
 }

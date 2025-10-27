@@ -263,6 +263,7 @@ input:focus {
     margin-bottom: 1rem;
 }
 
+/* ---------- Login Form ---------- */
 #login-form {
     display: flex;
     flex-direction: column;
@@ -282,14 +283,26 @@ input:focus {
     flex: 1;
 }
 
+/* ---------- Signup Button ---------- */
 #signupBtn {
-    background-color: #6c757d;
-    color: #fff;
     flex: 1;
     width: 100%;
-    margin-top: .5rem;
+    /* full width like login button */
+    margin-top: 0.5rem;
+    background-color: #6c757d;
+    color: #fff;
 }
 
+/* ---------- Signup Form (if separate) ---------- */
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* ---------- Social Logins ---------- */
 #social-logins {
     display: flex;
     flex-direction: column;
@@ -389,9 +402,7 @@ body.dark-mode #githubLoginBtn {
 /* ---------- Dark Mode Header ---------- */
 body.dark-mode .header {
     background-color: #1e1e1e;
-    /* dark background */
     color: #f5f5f5;
-    /* light text */
 }
 
 body.dark-mode .header button {

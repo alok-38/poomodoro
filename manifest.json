@@ -1,12 +1,19 @@
 {
-    "manifest_version": 3,
-    "name": "Pomodoro Timer Extension",
-    "version": "1.0",
-    "description": "A simple Pomodoro timer with task management.",
-    "action": {
-        "default_popup": "index.html"
-    },
-    "permissions": [
-        "storage"
-    ]
+  "manifest_version": 3,
+  "name": "Poomodoro",
+  "version": "1.0",
+  "description": "Pomodoro timer with Firebase auth",
+  "permissions": ["identity", "storage"],
+  "host_permissions": ["https://*.firebaseapp.com/*"],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "oauth2": {
+    "client_id": "423292605879-18essmfcuhdgtvl7vomedutnfslt65ro.apps.googleusercontent.com",
+    "scopes": ["email", "profile"]
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Poomodoro"
+  }
 }

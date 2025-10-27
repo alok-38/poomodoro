@@ -7,9 +7,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Environment variables
-.env
-
 # OS files
 .DS_Store
 Thumbs.db
@@ -17,3 +14,5 @@ Thumbs.db
 # Environment variables
 .env
 
+# Firebase config
+config.js

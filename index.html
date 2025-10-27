@@ -12,43 +12,55 @@
     <script src="scripts/dark-mode.js" defer></script>
 </head>
 
-
 <body>
-    <header class="card center">
+    <header class="card header">
         <h1>Pomodoro Timer Extension</h1>
-        <!-- Dark mode toggle -->
-        <button id="dark-mode-toggle">🌙 Dark Mode</button>
+        <div class="header-buttons">
+            <button id="dark-mode-toggle">🌙</button>
+            <button id="logoutBtn" style="display:none;">Logout</button>
+        </div>
     </header>
 
     <!-- 0️⃣ Authentication Section -->
     <section id="auth-section" class="card">
-        <h2>User Login</h2>
+        <h2>User Authentication</h2>
+        <p id="auth-error" style="color:red;"></p>
 
-        <!-- Email/Password Form -->
+        <!-- Login Form -->
         <form id="login-form" novalidate>
+            <h3>Login</h3>
             <div class="input-row">
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Email" required>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" placeholder="Email" required>
             </div>
             <div class="input-row">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" required>
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="Password" required>
             </div>
-            <div class="controls">
-                <button type="submit" id="loginBtn">Login</button>
-                <button type="button" id="signupBtn">Sign Up</button>
+            <button type="submit" id="loginBtn">Login</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" novalidate>
+            <h3>Sign Up</h3>
+            <div class="input-row">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" placeholder="Email" required>
             </div>
+            <div class="input-row">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" placeholder="Password" required>
+            </div>
+            <button type="button" id="signupBtn">Sign Up</button>
         </form>
 
         <!-- Social Logins -->
         <div id="social-logins" class="controls">
             <button type="button" id="googleLoginBtn">
-                <img src="assets/Google__G__logo.svg" alt="Google Logo" class="icon">
-                Google
+                <img src="assets/Google__G__logo.svg" alt="Google Logo" class="icon"> Google
             </button>
             <button type="button" id="githubLoginBtn">
-                <img src="assets/Octicons-mark-github.svg" alt="GitHub Logo" class="icon">
-                GitHub
+                <img src="assets/Octicons-mark-github.svg" alt="GitHub Logo" class="icon"> GitHub
             </button>
         </div>
     </section>
@@ -97,31 +109,6 @@
             </div>
         </section>
     </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
-
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyALsOaImgmDMpcBBaHSpXxKUYjcPHMF8EA",
-            authDomain: "chrome-extension-d1664.firebaseapp.com",
-            projectId: "chrome-extension-d1664",
-            storageBucket: "chrome-extension-d1664.firebasestorage.app",
-            messagingSenderId: "423292605879",
-            appId: "1:423292605879:web:bdcc3f6d490130399d8432"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        console.log("✅ Firebase initialized:", app.name);
-
-        // Initialize Authentication
-        const auth = getAuth(app);
-        console.log("✅ Auth object created:", auth);
-    </script>
-
-
 </body>
-
 
 </html>

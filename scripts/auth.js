@@ -8,17 +8,11 @@ import {
     GoogleAuthProvider,
     GithubAuthProvider,
     onAuthStateChanged,
+    signOut,
 } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
-// ----- Firebase Config -----
-const firebaseConfig = {
-    apiKey: "AIzaSyALsOaImgmDMpcBBaHSpXxKUYjcPHMF8EA",
-    authDomain: "chrome-extension-d1664.firebaseapp.com",
-    projectId: "chrome-extension-d1664",
-    storageBucket: "chrome-extension-d1664.firebasestorage.app",
-    messagingSenderId: "423292605879",
-    appId: "1:423292605879:web:bdcc3f6d490130399d8432",
-};
+// ✅ Import config
+import { firebaseConfig } from './config.js';
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -37,6 +31,7 @@ const loginForm = document.getElementById("login-form");
 const signupBtn = document.getElementById("signupBtn");
 const googleBtn = document.getElementById("googleLoginBtn");
 const githubBtn = document.getElementById("githubLoginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 const authSection = document.getElementById("auth-section");
 const mainUI = document.getElementById("main-ui");
 
@@ -47,9 +42,7 @@ loginForm.addEventListener("submit", (e) => {
     const password = loginForm.password.value;
 
     signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log("✅ Logged in:", userCredential.user);
-        })
+        .then((userCredential) => console.log("✅ Logged in:", userCredential.user))
         .catch((err) => console.error("❌ Login error:", err));
 });
 
@@ -59,9 +52,7 @@ signupBtn.addEventListener("click", () => {
     const password = loginForm.password.value;
 
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log("✅ User created:", userCredential.user);
-        })
+        .then((userCredential) => console.log("✅ User created:", userCredential.user))
         .catch((err) => console.error("❌ Signup error:", err));
 });
 
@@ -79,15 +70,24 @@ githubBtn.addEventListener("click", () => {
         .catch((err) => console.error("❌ GitHub login error:", err));
 });
 
+// ----- Logout -----
+logoutBtn.addEventListener("click", () => {
+    signOut(auth)
+        .then(() => console.log("✅ User logged out"))
+        .catch((err) => console.error("❌ Logout error:", err));
+});
+
 // ----- Auth State Listener -----
 onAuthStateChanged(auth, (user) => {
     if (user) {
         authSection.style.display = "none";
         mainUI.style.display = "block";
+        logoutBtn.style.display = "inline-block";
         console.log("👤 User signed in:", user);
     } else {
         authSection.style.display = "block";
         mainUI.style.display = "none";
+        logoutBtn.style.display = "none";
         console.log("👤 No user signed in");
     }
 });

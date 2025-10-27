@@ -38,3 +38,5 @@ build/
 .env
 server/.env
 
+# Firebase config
+scripts/config.js
